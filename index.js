@@ -24,27 +24,27 @@ const json = require('./resources/config.json');
 			json.login.password
 		);
 
-		// submit email & password together
-		await page.waitForSelector('#submitButton');
-		console.log('password submitted');
-		await page.click('#submitButton');
+		// // submit email & password together
+		// await page.waitForSelector('#submitButton');
+		// console.log('password submitted');
+		// await page.click('#submitButton');
 
-		// take screenshot
-		const res = await page.waitForResponse(response => response.url() === "http://stl-pulse-api-1812883780.us-east-2.elb.amazonaws.com/responses" && response.status() === 200);
+		// // take screenshot
+		// const res = await page.waitForResponse(response => response.url() === "http://stl-pulse-api-1812883780.us-east-2.elb.amazonaws.com/responses" && response.status() === 200);
 	
-		await page.waitFor(5000);
-		await page.screenshot({
-			path: 'scripts/images/screenshot.png',
-			clip: {
-				x: 86.5,
-				y: 115.5,
-				width: 718,
-				height: 700
-			}
-		});
+		// await page.waitFor(5000);
+		// await page.screenshot({
+		// 	path: 'scripts/images/screenshot.png',
+		// 	clip: {
+		// 		x: 86.5,
+		// 		y: 115.5,
+		// 		width: 718,
+		// 		height: 700
+		// 	}
+		// });
 
-		console.log('logging out');
-		await browser.close();
+		// console.log('logging out');
+		// await browser.close();
 	} catch (error) {
 		console.log('ERROR: Updated screenshot unable to be grabbed. ');
 		// sent slackbot message to someone and alert them that the 

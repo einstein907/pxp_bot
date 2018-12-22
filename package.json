@@ -4,7 +4,8 @@
   "description": "Bot to take care of @portraits_by_palmer instagram account",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
