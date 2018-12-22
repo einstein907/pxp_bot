@@ -2,6 +2,9 @@ const puppeteer = require('puppeteer');
 const json = require('./resources/config.json');
 const $ = require('jquery').$;
 
+const delay = (ms) =>
+	new Promise((resolve) => setTimeout(resolve, ms));
+
 (async () => {
 	// opens browser
 	console.log('Fetching browser...');
@@ -10,10 +13,7 @@ const $ = require('jquery').$;
 	await page.goto('https://www.instagram.com/accounts/login/?hl=en');
 
 	try {
-		// authenticate on microsoft office online
-		// enter email address
-		// await page.waitFor(5000);
-
+		// login on instagram
 		console.log('sign up loaded');
 		await page.waitForSelector('p[class=izU2O]');
 
@@ -33,11 +33,15 @@ const $ = require('jquery').$;
 		const submitButton = await page.$('button[type=submit]');
 		await submitButton.click();
 
+		console.log('wait for page to load');
 		await page.waitForNavigation();
 
-		// navigate to x & y coordinates and click()
+		// accept dialogue box
+		await page.mouse.click(400, 400);
+		console.log('clicked');
 
-		await page.waitFor(4000);
+		await page.waitFor(3000);
+		await browser.close();
 		// // submit email & password together
 		// await page.waitForSelector('#submitButton');
 		// console.log('password submitted');
