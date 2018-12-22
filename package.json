@@ -1,0 +1,19 @@
+{
+  "name": "pxp_bot",
+  "version": "1.0.0",
+  "description": "Bot to take care of @portraits_by_palmer instagram account",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einstein907/pxp_bot.git"
+  },
+  "author": "Jenna Palmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/einstein907/pxp_bot/issues"
+  },
+  "homepage": "https://github.com/einstein907/pxp_bot#readme"
+}
