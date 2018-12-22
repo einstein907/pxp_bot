@@ -11,16 +11,21 @@ const json = require('./resources/config.json');
 	try {
 		// authenticate on microsoft office online
 		// enter email address
-		await page.waitForSelector('input[type=text]');
+		// await page.waitFor(5000);
+
+		console.log('sign up loaded');
+		await page.waitForSelector('p[class=izU2O]');
+
+		await page.waitForSelector('input[name=username]');
 
 		await page.type(
-			'input[type=email]',
+			'input[name=username]',
 			json.login.username
 		);
 
-        await page.waitForSelector('input[type=password');
+        await page.waitForSelector('input[name=password');
 		await page.type(
-			'input[type=password]',
+			'input[name=password]',
 			json.login.password
 		);
 
@@ -32,7 +37,6 @@ const json = require('./resources/config.json');
 		// // take screenshot
 		// const res = await page.waitForResponse(response => response.url() === "http://stl-pulse-api-1812883780.us-east-2.elb.amazonaws.com/responses" && response.status() === 200);
 	
-		// await page.waitFor(5000);
 		// await page.screenshot({
 		// 	path: 'scripts/images/screenshot.png',
 		// 	clip: {
@@ -46,9 +50,7 @@ const json = require('./resources/config.json');
 		// console.log('logging out');
 		// await browser.close();
 	} catch (error) {
-		console.log('ERROR: Updated screenshot unable to be grabbed. ');
-		// sent slackbot message to someone and alert them that the 
 		console.log(error);
-		await browser.close();
+		// await browser.close();
 	}
 })();
