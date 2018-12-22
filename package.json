@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/einstein907/pxp_bot/issues"
   },
-  "homepage": "https://github.com/einstein907/pxp_bot#readme"
+  "homepage": "https://github.com/einstein907/pxp_bot#readme",
+  "dependencies": {
+    "puppeteer": "^1.11.0"
+  }
 }
