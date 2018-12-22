@@ -1,5 +1,9 @@
 const puppeteer = require('puppeteer');
 const json = require('./resources/config.json');
+const $ = require('jquery').$;
+
+const delay = (ms) =>
+	new Promise((resolve) => setTimeout(resolve, ms));
 
 (async () => {
 	// opens browser
@@ -9,46 +13,56 @@ const json = require('./resources/config.json');
 	await page.goto('https://www.instagram.com/accounts/login/?hl=en');
 
 	try {
-		// authenticate on microsoft office online
-		// enter email address
-		await page.waitForSelector('input[type=text]');
+		// login on instagram
+		console.log('sign up loaded');
+		await page.waitForSelector('p[class=izU2O]');
+
+		await page.waitForSelector('input[name=username]');
 
 		await page.type(
-			'input[type=email]',
+			'input[name=username]',
 			json.login.username
 		);
 
-        await page.waitForSelector('input[type=password');
+        await page.waitForSelector('input[name=password');
 		await page.type(
-			'input[type=password]',
+			'input[name=password]',
 			json.login.password
 		);
 
-		// submit email & password together
-		await page.waitForSelector('#submitButton');
-		console.log('password submitted');
-		await page.click('#submitButton');
+		const submitButton = await page.$('button[type=submit]');
+		await submitButton.click();
 
-		// take screenshot
-		const res = await page.waitForResponse(response => response.url() === "http://stl-pulse-api-1812883780.us-east-2.elb.amazonaws.com/responses" && response.status() === 200);
+		console.log('wait for page to load');
+		await page.waitForNavigation();
+
+		// accept dialogue box
+		await page.mouse.click(400, 400);
+		console.log('clicked');
+
+		await page.waitFor(3000);
+		await browser.close();
+		// // submit email & password together
+		// await page.waitForSelector('#submitButton');
+		// console.log('password submitted');
+		// await page.click('#submitButton');
+
+		// // take screenshot
 	
-		await page.waitFor(5000);
-		await page.screenshot({
-			path: 'scripts/images/screenshot.png',
-			clip: {
-				x: 86.5,
-				y: 115.5,
-				width: 718,
-				height: 700
-			}
-		});
+		// await page.screenshot({
+		// 	path: 'scripts/images/screenshot.png',
+		// 	clip: {
+		// 		x: 86.5,
+		// 		y: 115.5,
+		// 		width: 718,
+		// 		height: 700
+		// 	}
+		// });
 
-		console.log('logging out');
-		await browser.close();
+		// console.log('logging out');
+		// await browser.close();
 	} catch (error) {
-		console.log('ERROR: Updated screenshot unable to be grabbed. ');
-		// sent slackbot message to someone and alert them that the 
 		console.log(error);
-		await browser.close();
+		// await browser.close();
 	}
 })();
