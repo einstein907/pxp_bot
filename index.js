@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const json = require('./resources/config.json');
+const $ = require('jquery').$;
 
 (async () => {
 	// opens browser
@@ -29,13 +30,20 @@ const json = require('./resources/config.json');
 			json.login.password
 		);
 
+		const submitButton = await page.$('button[type=submit]');
+		await submitButton.click();
+
+		await page.waitForNavigation();
+
+		// navigate to x & y coordinates and click()
+
+		await page.waitFor(4000);
 		// // submit email & password together
 		// await page.waitForSelector('#submitButton');
 		// console.log('password submitted');
 		// await page.click('#submitButton');
 
 		// // take screenshot
-		// const res = await page.waitForResponse(response => response.url() === "http://stl-pulse-api-1812883780.us-east-2.elb.amazonaws.com/responses" && response.status() === 200);
 	
 		// await page.screenshot({
 		// 	path: 'scripts/images/screenshot.png',
