@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const json = require('./resources/config.json');
 const $ = require('jquery').$;
+const targetScan = require('./targetScan.js');
 
 const delay = (ms) =>
 	new Promise((resolve) => setTimeout(resolve, ms));
@@ -40,27 +41,12 @@ const delay = (ms) =>
 		await page.mouse.click(400, 400);
 		console.log('clicked');
 
-		await page.waitFor(3000);
-		await browser.close();
-		// // submit email & password together
-		// await page.waitForSelector('#submitButton');
-		// console.log('password submitted');
-		// await page.click('#submitButton');
-
-		// // take screenshot
-	
-		// await page.screenshot({
-		// 	path: 'scripts/images/screenshot.png',
-		// 	clip: {
-		// 		x: 86.5,
-		// 		y: 115.5,
-		// 		width: 718,
-		// 		height: 700
-		// 	}
-		// });
-
-		// console.log('logging out');
+		// await page.waitFor(3000);
 		// await browser.close();
+
+		let example = await targetScan.targetScan(page, json.targets);
+		console.log(example);
+
 	} catch (error) {
 		console.log(error);
 		// await browser.close();
