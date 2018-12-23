@@ -1,51 +1,117 @@
+// const $ = require('jquery').$;
+// const targetScan = require('./scripts/targetScan.js');
+// const fs = require('fs');
+const login = require('./scripts/login.js');
 const puppeteer = require('puppeteer');
-const json = require('./resources/config.json');
-const $ = require('jquery').$;
-const targetScan = require('./targetScan.js');
-
-const delay = (ms) =>
-	new Promise((resolve) => setTimeout(resolve, ms));
+const config = require('./resources/config.json');
 
 (async () => {
 	// opens browser
 	console.log('Fetching browser...');
 	const browser = await puppeteer.launch({ headless: false });
 	const page = await browser.newPage();
+	await page.setViewport({
+		width: 800,
+		height: 1000
+	});
 	await page.goto('https://www.instagram.com/accounts/login/?hl=en');
 
 	try {
-		// login on instagram
-		console.log('sign up loaded');
-		await page.waitForSelector('p[class=izU2O]');
+		// login
+		await login.login(page);
 
-		await page.waitForSelector('input[name=username]');
+		const hashtags = config.hashtags;
 
-		await page.type(
-			'input[name=username]',
-			json.login.username
-		);
+		for(var x = 0; x < hashtags.length; x++) {
+			var targetAddress = 'https://www.instagram.com/explore/tags/' + hashtags[x] + '/';
+			await page.goto(targetAddress);
+			console.log('hashtag: ' + hashtags[x]);
+	
+			// click on first photo
+			const photo = await page.$("._9AhH0");
+			await photo.click();
 
-        await page.waitForSelector('input[name=password');
-		await page.type(
-			'input[name=password]',
-			json.login.password
-		);
+			for (var i = 0; i < 33; i++) {
+				console.log('i: ' + i)
+				console.log(i !== 10);
+				// skip three pics for an avg of 10% skipped
+				if(i !== 10 && i !== 20 && i !== 30) {
+					try {		
+						// wait for display to appear
+						await page.waitForSelector('span[class=RPhNB]');
+						await page.waitForSelector('div[class=C4VMK]');
+	
+						//like photo
+						// await page.waitForSelector('button[class=coreSpriteHeartOpen');
+						temp = await page.$(".coreSpriteHeartOpen");
+						const heart = await page.$(".glyphsSpriteHeart__filled__24__red_5");
 
-		const submitButton = await page.$('button[type=submit]');
-		await submitButton.click();
+						if(heart !== null) {
+							console.log('already liked... moving on');
+							i--;
+						} else {
+							console.log(i + ': found heart');
+							temp.click();	
+						}
 
-		console.log('wait for page to load');
-		await page.waitForNavigation();
+						await page.waitFor(2000);
+		
+						// click next page
+						temp = await page.$(".coreSpriteRightPaginationArrow");
+						temp.click();
+						await page.waitForNavigation({ waitUntil: 'networkidle2' });
+					} catch (err) {
+						console.log('ERROR: ' + err);
+						// decrement for loop 
+						i--;
+						// if an error happens getting this specific post's info, skip it and move on
+						console.log('cant get a page so moving to next one');
 
-		// accept dialogue box
-		await page.mouse.click(400, 400);
-		console.log('clicked');
+						try {
+							temp = await page.$(".coreSpriteRightPaginationArrow");
+							temp.click();
+						} catch (err) {
+							await page.reload({ waitUntil: 'networkidle0' });
+							// await page.keyboard.press('ArrowRight');
+							const photos = await page.$$("._9AhH0");
+							await photos[i].click();				
+						}
 
-		// await page.waitFor(3000);
-		// await browser.close();
+						await page.waitForNavigation({ waitUntil: 'networkidle2' });
+					}	
+				} else {
+					console.log('skipping 10%!');
+				}
+			}
+	
+		
+		}
 
-		let example = await targetScan.targetScan(page, json.targets);
-		console.log(example);
+
+		
+
+		// // like first ten photos
+		// await page.waitForSelector('div[class=_9AhH0');
+
+		// for(var x = 0; x < 10; x++) {
+
+		// 	await page.evaluate(() => {
+		// 		window.scrollBy(0, window.innerHeight);
+		// 	  });
+
+		// 	await page.mouse.click(400, 400, { button: 'left', clickCount: 2 });
+		// 	console.log('clicked');
+		// 	await page.waitFor(3000);
+		// }
+
+		// temp = await page.$$("._9AhH0");
+
+		// console.log(temp.length);
+
+		// temp.click();
+
+
+		await browser.close();
 
 	} catch (error) {
 		console.log(error);
