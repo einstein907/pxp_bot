@@ -14,6 +14,9 @@ function appendTextFile(afilename, output)
 }
 
 async function runDaily(hashtags){
+	// grab current time 
+	const start = new Date();
+
 	// establish filename
 	const f = "output.txt";
 
@@ -22,11 +25,14 @@ async function runDaily(hashtags){
 		console.log('It\'s saved!');
 	}); 
 
+	// add date to top of file
+	appendTextFile(f, Date.now());
+
 	// opens browser
 	console.log('Fetching browser...');
 	appendTextFile(f, 'Fetching browser...');
 
-	const browser = await puppeteer.launch({ headless: false });
+	const browser = await puppeteer.launch({ headless: true });
 	const page = await browser.newPage();
 	await page.setViewport({
 		width: 800,
@@ -89,14 +95,16 @@ async function runDaily(hashtags){
 						try {
 							temp = await page.$(".coreSpriteRightPaginationArrow");
 							temp.click();
+							await page.waitForNavigation({ waitUntil: 'networkidle2' });
 						} catch (err) {
-							await page.reload({ waitUntil: 'networkidle0' });
+							await page.goto(targetAddress);
 							// await page.keyboard.press('ArrowRight');
 							const photos = await page.$$("._9AhH0");
 							await photos[i].click();				
 						}
 
-						await page.waitForNavigation({ waitUntil: 'networkidle2' });
+						// await page.waitFor(5000);
+
 					}	
 				} else {
 					console.log('skipping 10%!');
@@ -111,6 +119,8 @@ async function runDaily(hashtags){
 		appendTextFile(f, err);
 		// await browser.close();
 	}
+
+	return new Date() - start;
 }
 
 module.exports = {

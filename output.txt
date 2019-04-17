@@ -1,7 +1,384 @@
+1546733089853
 Fetching browser...
-hashtag: drawing
+hashtag: studioscenes
+already liked... moving on
+0: found heart
+1: found heart
+2: found heart
+3: found heart
+4: found heart
+5: found heart
+6: found heart
+7: found heart
+8: found heart
+9: found heart
+skipping 10%!
+11: found heart
+12: found heart
+13: found heart
+14: found heart
+15: found heart
+already liked... moving on
+16: found heart
+17: found heart
+already liked... moving on
+already liked... moving on
+18: found heart
+19: found heart
+skipping 10%!
+21: found heart
+already liked... moving on
+22: found heart
+23: found heart
+already liked... moving on
+already liked... moving on
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+already liked... moving on
+already liked... moving on
+28: found heart
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: insanelyinspiredinstagram
+already liked... moving on
+0: found heart
+already liked... moving on
+1: found heart
+2: found heart
+already liked... moving on
+3: found heart
+4: found heart
+5: found heart
+6: found heart
+7: found heart
+8: found heart
+already liked... moving on
+already liked... moving on
+9: found heart
+skipping 10%!
+11: found heart
+12: found heart
+13: found heart
+14: found heart
+15: found heart
+16: found heart
+already liked... moving on
+17: found heart
+already liked... moving on
+18: found heart
+19: found heart
+skipping 10%!
+21: found heart
+22: found heart
+23: found heart
+already liked... moving on
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+28: found heart
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: passioncolorjoy
+0: found heart
+already liked... moving on
+already liked... moving on
+1: found heart
+2: found heart
+3: found heart
+already liked... moving on
+4: found heart
+already liked... moving on
+5: found heart
+6: found heart
+already liked... moving on
+7: found heart
+already liked... moving on
+8: found heart
+already liked... moving on
+9: found heart
+skipping 10%!
+11: found heart
+12: found heart
+already liked... moving on
+13: found heart
+14: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+15: found heart
+16: found heart
+already liked... moving on
+17: found heart
+18: found heart
+19: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+21: found heart
+22: found heart
+23: found heart
+already liked... moving on
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+already liked... moving on
+28: found heart
+already liked... moving on
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: colorcrushcreative
+0: found heart
+already liked... moving on
+already liked... moving on
+1: found heart
+2: found heart
+3: found heart
+4: found heart
+5: found heart
+already liked... moving on
+6: found heart
+7: found heart
+already liked... moving on
+8: found heart
+already liked... moving on
+9: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+11: found heart
+12: found heart
+13: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+14: found heart
+15: found heart
+already liked... moving on
+16: found heart
+17: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+18: found heart
+19: found heart
+skipping 10%!
+21: found heart
+22: found heart
+already liked... moving on
+23: found heart
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+28: found heart
+29: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+31: found heart
+32: found heart
+hashtag: courageouscreativehomestudio
+0: found heart
+already liked... moving on
+1: found heart
+already liked... moving on
+2: found heart
+3: found heart
+already liked... moving on
+already liked... moving on
+4: found heart
+5: found heart
+6: found heart
 already liked... moving on
 already liked... moving on
 already liked... moving on
 already liked... moving on
 already liked... moving on
+already liked... moving on
+7: found heart
+8: found heart
+9: found heart
+skipping 10%!
+11: found heart
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+12: found heart
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+13: found heart
+14: found heart
+15: found heart
+16: found heart
+17: found heart
+18: found heart
+19: found heart
+skipping 10%!
+21: found heart
+22: found heart
+23: found heart
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+28: found heart
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: contemporaryfineart
+0: found heart
+1: found heart
+2: found heart
+3: found heart
+4: found heart
+5: found heart
+6: found heart
+7: found heart
+8: found heart
+9: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+11: found heart
+12: found heart
+13: found heart
+14: found heart
+15: found heart
+16: found heart
+17: found heart
+18: found heart
+19: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+21: found heart
+22: found heart
+23: found heart
+already liked... moving on
+24: found heart
+25: found heart
+already liked... moving on
+26: found heart
+27: found heart
+28: found heart
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: artscrowds
+0: found heart
+1: found heart
+already liked... moving on
+already liked... moving on
+2: found heart
+3: found heart
+4: found heart
+5: found heart
+6: found heart
+already liked... moving on
+7: found heart
+8: found heart
+9: found heart
+skipping 10%!
+11: found heart
+12: found heart
+13: found heart
+14: found heart
+15: found heart
+16: found heart
+17: found heart
+18: found heart
+19: found heart
+skipping 10%!
+21: found heart
+already liked... moving on
+22: found heart
+23: found heart
+24: found heart
+25: found heart
+26: found heart
+27: found heart
+28: found heart
+29: found heart
+skipping 10%!
+31: found heart
+32: found heart
+hashtag: artsbeautifulx
+0: found heart
+1: found heart
+2: found heart
+3: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+4: found heart
+already liked... moving on
+5: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+6: found heart
+7: found heart
+8: found heart
+9: found heart
+skipping 10%!
+already liked... moving on
+already liked... moving on
+already liked... moving on
+11: found heart
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+TimeoutError: waiting for selector "span[class=RPhNB]" failed: timeout 30000ms exceeded
+cant get a page so moving to next one
+12: found heart
+13: found heart
+14: found heart
+15: found heart
+TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+cant get a page so moving to next one
+15: found heart
+16: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+17: found heart
+18: found heart
+already liked... moving on
+already liked... moving on
+already liked... moving on
+already liked... moving on
+TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+cant get a page so moving to next one
