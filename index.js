@@ -1,68 +1,59 @@
-const puppeteer = require('puppeteer');
-const json = require('./resources/config.json');
-const $ = require('jquery').$;
+const config = require('./resources/config.json');
+const hashJson = require('./resources/hashtags.json');
+const runDaily = require('./scripts/runDaily');
+const fs = require('fs');
 
-const delay = (ms) =>
-	new Promise((resolve) => setTimeout(resolve, ms));
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}  
+
+function appendTextFile(afilename, output)
+{
+	fs.appendFile(afilename, output + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+	}); 
+}
+
 
 (async () => {
-	// opens browser
-	console.log('Fetching browser...');
-	const browser = await puppeteer.launch({ headless: false });
-	const page = await browser.newPage();
-	await page.goto('https://www.instagram.com/accounts/login/?hl=en');
+    // figure out seconds until top of the hour 
+    const msInHour = 60 * 60 * 1000;
 
-	try {
-		// login on instagram
-		console.log('sign up loaded');
-		await page.waitForSelector('p[class=izU2O]');
+    var begin = 0;
+    var end = 10;
 
-		await page.waitForSelector('input[name=username]');
+    for(var i = 0; i < 24; i++) {
+        // grab the config'd hashtags
+        const hashtags = config.hashtags;
 
-		await page.type(
-			'input[name=username]',
-			json.login.username
-		);
+        // time began
+        var timeBegan = new Date();
+        console.log('time began: ' + timeBegan);
 
-        await page.waitForSelector('input[name=password');
-		await page.type(
-			'input[name=password]',
-			json.login.password
-		);
+        const passedHashtags = hashtags.slice(begin, end);
+        console.log(passedHashtags);
 
-		const submitButton = await page.$('button[type=submit]');
-		await submitButton.click();
+        // grab the current start time
+        console.log('running');
+        const totalTimeRan = await runDaily.runDaily(passedHashtags);
 
-		console.log('wait for page to load');
-		await page.waitForNavigation();
+        var curTime = new Date();
+        var expectantTime = timeBegan.getHours() + 1;
+        while(curTime.getHours() !== expectantTime) {
+            console.log('Session Began Hour: ' + timeBegan.getHours());
+            console.log('Expectant Hour: ' + expectantTime);
+            console.log('Current Time: ' + curTime.getHours())
+            // wait fifteen minutes
+            console.log('going to sleep for fifteen minutes');
+            await sleep(900000);
+            curTime = new Date();
+        }
 
-		// accept dialogue box
-		await page.mouse.click(400, 400);
-		console.log('clicked');
+        console.log('finally the next hour... restarting session');
+        begin = end;
+        end = end + 10;
+    }    
 
-		await page.waitFor(3000);
-		await browser.close();
-		// // submit email & password together
-		// await page.waitForSelector('#submitButton');
-		// console.log('password submitted');
-		// await page.click('#submitButton');
-
-		// // take screenshot
-	
-		// await page.screenshot({
-		// 	path: 'scripts/images/screenshot.png',
-		// 	clip: {
-		// 		x: 86.5,
-		// 		y: 115.5,
-		// 		width: 718,
-		// 		height: 700
-		// 	}
-		// });
-
-		// console.log('logging out');
-		// await browser.close();
-	} catch (error) {
-		console.log(error);
-		// await browser.close();
-	}
 })();
